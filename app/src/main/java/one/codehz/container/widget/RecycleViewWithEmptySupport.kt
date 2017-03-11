@@ -23,7 +23,7 @@ class RecycleViewWithEmptySupport @JvmOverloads constructor(context: Context, at
                 }
             }.recycle()
         }
-        addOnLayoutChangeListener { _, left, top, right, bottom, _, _, _, _ ->
+        addOnLayoutChangeListener { view, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
             emptyDrawable.setBounds(0, 0, right - left, bottom - top)
         }
     }

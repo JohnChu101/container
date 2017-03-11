@@ -17,7 +17,6 @@ import android.widget.TextView
 import one.codehz.container.DetailActivity
 import one.codehz.container.R
 import one.codehz.container.ServiceSelectorActivity
-import one.codehz.container.WakeLockActivity
 import one.codehz.container.adapters.ComponentListAdapter
 import one.codehz.container.ext.MakeLoaderCallbacks
 import one.codehz.container.ext.get
@@ -31,7 +30,6 @@ class ComponentDetailFragment(val model: AppModel) : Fragment() {
     val hackList by lazy<RecyclerView> { view!![R.id.hack] }
     val historyList by lazy<RecyclerView> { view!![R.id.history_list] }
     val addButton by lazy<ImageButton> { view!![R.id.add_button] }
-    val wakeLockButton by lazy<TextView> { view!![R.id.wake_lock] }
     val clearButton by lazy<TextView> { view!![R.id.clear_history] }
     val historyListAdapter by lazy {
         ComponentListAdapter(true) { item ->
@@ -56,7 +54,7 @@ class ComponentDetailFragment(val model: AppModel) : Fragment() {
         ctx.contentResolver.query(
                 MainProvider.COMPONENT_LOG_VIEW_URI,
                 arrayOf("_id", "type", "action", "result", "count", "restricted"),
-                "`package` = ? AND `type` <> 'wakelock'",
+                "`package` = ?",
                 arrayOf(model.packageName),
                 "type ASC").use {
             generateSequence { if (it.moveToNext()) it else null }.map {
@@ -79,13 +77,8 @@ class ComponentDetailFragment(val model: AppModel) : Fragment() {
             adapter = ComponentListAdapter(true) {}
             layoutManager = LinearLayoutManager(context)
         }
-        wakeLockButton.setOnClickListener {
-            activity.startActivity(Intent(context, WakeLockActivity::class.java).apply {
-                putExtra("package", model.packageName)
-            })
-        }
         clearButton.setOnClickListener {
-            context.contentResolver.delete(MainProvider.COMPONENT_LOG_URI, "package = ? AND `type` <> 'wakelock'", arrayOf(model.packageName))
+            context.contentResolver.delete(MainProvider.COMPONENT_LOG_URI, "package = ?", arrayOf(model.packageName))
             loaderManager.restartLoader(0, null, historyListLoader)
         }
         addButton.setOnClickListener {

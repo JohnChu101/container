@@ -3,7 +3,6 @@ package one.codehz.container
 import android.app.Application
 import android.content.Context
 import android.os.Build
-import android.support.multidex.MultiDex
 import com.lody.virtual.client.stub.StubManifest
 import mirror.RefStaticObject
 import one.codehz.container.delegate.*
@@ -21,7 +20,6 @@ class App : Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
-        MultiDex.install(this)
         StubManifest.ENABLE_IO_REDIRECT = true
         virtualCore.startup(base)
     }
@@ -34,7 +32,7 @@ class App : Application() {
             when {
                 isVAppProcess -> {
                     componentDelegate = MyComponentDelegate(this@App)
-                    phoneInfoDelegate = MyPhoneInfoDelegate(this@App)
+                    phoneInfoDelegate = MyPhoneInfoDelegate()
                     taskDescriptionDelegate = MyTaskDescriptionDelegate()
                     ioRedirectDelegate = MyIORedirectDelegate()
                     uncheckedExceptionDelegate = MyUncheckedExceptionDelegate()

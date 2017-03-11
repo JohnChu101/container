@@ -111,8 +111,6 @@
     <string name="special_settings">Special Settings</string>
     <string name="basic">Basic</string>
     <string name="experimental_options">Experimental options</string>
-    <string name="wake_lock">Wake Lock</string>
-    <string name="wake_lock_postfix">%1$s:WakeLock Manager</string>
     <string name="icon_preview">Icon Preview</string>
     <string name="image_selector">Image Selector</string>
     <string name="image_exporter">Image Exporter</string>
@@ -123,6 +121,4 @@
     <string name="edit_image">Edit Image</string>
     <string name="icon_exported">Icon Exported: %1$s</string>
     <string name="open">Open</string>
-    <string name="user_name">User Name</string>
-    <string name="user_preference">User Preference</string>
 </resources>

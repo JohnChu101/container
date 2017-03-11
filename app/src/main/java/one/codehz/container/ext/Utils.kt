@@ -6,7 +6,6 @@ import android.app.Dialog
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.SharedPreferences
-import android.database.Cursor
 import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Parcel
@@ -30,17 +29,9 @@ import com.lody.virtual.os.VUserManager
 import one.codehz.container.base.SameAsAble
 import one.codehz.container.provider.RunningWidgetProvier
 import java.io.File
-import kotlin.coroutines.experimental.buildSequence
 import kotlin.reflect.KProperty
 
-typealias ViewBinding<T, R> = Pair<(View, R) -> Unit, (T) -> R>
-
-infix fun <T, R> T.then(fn: T.() -> R) = run(fn)
-
 fun getUriFromFile(file: File) = FileProvider.getUriForFile(virtualCore.context, "one.codehz.container.fileprovider", file)!!
-
-@Suppress("EXPERIMENTAL_FEATURE_WARNING")
-fun Cursor.asSequence() = buildSequence { while (moveToNext()) yield(this@asSequence) }
 
 @Suppress("UNCHECKED_CAST")
 operator fun <T> View.get(id: Int) = this.findViewById(id) as T

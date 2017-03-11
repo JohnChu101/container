@@ -34,23 +34,16 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".WakeLockActivity"
-            android:configChanges="orientation|screenSize"
-            android:parentActivityName=".DetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity
             android:name=".ShortcutActivity"
             android:excludeFromRecents="true"
             android:exported="false"
             android:noHistory="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
-        <activity
-            android:name=".ShortcutMakerActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar"/>
+		<activity
+			android:name=".ShortcutMakerActivity"
+			android:excludeFromRecents="true"
+			android:exported="false"
+			android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
             android:name=".LoadingActivity"
@@ -146,12 +139,6 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".UserSettingActivity"
-            android:configChanges="orientation|screenSize|screenLayout"
-            android:label="@string/user_preference"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity
             android:name=".SettingsActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:icon="@drawable/ic_device_information"
@@ -188,17 +175,15 @@
         <service
             android:name=".RunningWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS"/>
-
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="one.codehz.container.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider"/>
-        </provider>
-
+		<provider
+			android:name="android.support.v4.content.FileProvider"
+			android:authorities="one.codehz.container.fileprovider"
+			android:exported="false"
+			android:grantUriPermissions="true">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/fileprovider"/>
+		</provider>
         <provider
             android:name=".provider.SystemApplicationProvider"
             android:authorities="one.codehz.container.provider.system-applications"
