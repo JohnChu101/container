@@ -34,12 +34,12 @@ Here is a list of features:
 How to get source code
 ----------------------
 
-We maintain the source code at GitHub: https://github.com/codehz/container
+We maintain the source code at GitHub: https://github.com/JohnChu101/container
 
 To get the latest source code, run following command:
 
 ```Shell
-git clone https://github.com/codehz/container
+git clone https://github.com/JohnChu101/container
 ```
 
 This will create a directory named container in your current directory and source files are stored there.
@@ -49,8 +49,10 @@ Dependency
 
 The Core Feature depend on @[asLody](https://github.com/asLody)'s library: [VirtualApp](https://github.com/asLody/VirtualApp).
 
-As well as I made some changes to the form of the patch to stay in the project's root directory(`X.patch`).
+As well as @[codehz](https://github.com/codehz) made some changes to the form of the patch to stay in the project's root directory(`X.patch`).
 If you want to fetch the newest library's source, you can manually apply the patch to the latest branch of its project and copy the lib file back to the root of the project.
+
+I made some slight changes to the program to ensure it runs perfectly on Android 6.
 
 License
 -------
