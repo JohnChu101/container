@@ -58,7 +58,7 @@
     <string name="deleted">Deleted</string>
     <string name="undo">undo</string>
     <string name="stopped">Stopped</string>
-    <string name="input_name">Input the name of the new user.</string>
+    <string name="input_name">Input the name of the new user</string>
     <string name="user_manager">User Manager</string>
     <string name="user_manager_summary">Manage Virtual Users</string>
     <string name="id_label" translatable="false">ID:</string>
